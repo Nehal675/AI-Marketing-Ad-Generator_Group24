@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI Marketing Generator</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #1d2671, #c33764);
+    color: white;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 700px;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(15px);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    margin-bottom: 20px;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 12px 14px;
+    margin: 12px 0;
+    border-radius: 10px;
+    border: none;
+    font-size: 14px;
+    outline: none;
+}
+
+textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+button {
+    background: #ff4b2b;
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: 0.3s ease;
+    font-weight: 600;
+}
+
+button:hover {
+    background: #ff416c;
+    transform: translateY(-2px);
+}
+
+.output {
+    background: rgba(0,0,0,0.35);
+    padding: 18px;
+    border-radius: 12px;
+    white-space: pre-wrap;
+    line-height: 1.6;
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background: #00c9a7;
+    margin-bottom: 12px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.checkbox-container input[type="checkbox"] {
+    width: auto;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.footer-note {
+    text-align: center;
+    font-size: 12px;
+    opacity: 0.7;
+    margin-top: 15px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🚀 AI Marketing Post Generator</h1>
+
+    <form method="POST" class="card">
+
+        <input type="text" name="name" placeholder="Product Name" required>
+
+        <textarea name="desc" placeholder="Product Description" required></textarea>
+
+        <input type="number" step="any" name="retail" placeholder="Retail Price" required>
+
+        <input type="number" step="any" name="discount" placeholder="Discounted Price (0 if none)" required>
+
+        <select name="platform">
+            <option>Facebook</option>
+            <option>Instagram</option>
+            <option>Twitter</option>
+        </select>
+
+        <select name="tone">
+            <option>Professional</option>
+            <option>Exciting</option>
+            <option>Fun</option>
+        </select>
+
+       <div class="checkbox-container">
+    
+        <!-- القيمة الافتراضية لو مش متعلم -->
+      <div class="checkbox-container">
+      <input type="checkbox" name="free_shipping" id="free_shipping" value="y">
+      <label for="free_shipping">Free Shipping</label>
+      </div>
+
+    </div>
+
+        <button type="submit">✨ Generate Post</button>
+
+    </form>
+
+    {% if result %}
+    <div class="card">
+        <div class="badge">
+            {{ result.platform }} | Tone: {{ result.tone }} | {{ result.validation }}
+        </div>
+        <div class="output">{{ result.post }}</div>
+    </div>
+    {% endif %}
+
+    <div class="footer-note">
+        Powered by Mistral 7B • AI Luxury Copy Engine
+    </div>
+
+</div>
+
+</body>
+</html>
