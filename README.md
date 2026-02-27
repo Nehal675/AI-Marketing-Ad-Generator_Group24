@@ -24,7 +24,7 @@ An advanced analytical tool designed to synthesize sophisticated marketing copy 
 * `README.md`: Formal project documentation.
 
 ## 🚀 Deployment Instructions (Google Colab)
-1.  **Environment Setup**: Ensure the Runtime type is set to **T4 GPU**.
-2.  **Asset Upload**: Upload `app.py` and the `templates/` directory to the root path.
-3.  **Dependency Installation**: Execute `!pip install flask-ngrok transformers accelerate bitsandbytes`.
-4.  **Execution**: Run `app.py`. Access the application via the securely tunneled URL provided by Ngrok.
+1. **Environment Setup**: Ensure the Runtime type is set to **T4 GPU**.
+2. **Project Clone**: Execute `!git clone https://github.com/Nehal675/AI-Marketing-Ad-Generator_Group24.git` and `%cd AI-Marketing-Ad-Generator_Group24` to load all project assets automatically.
+3. **Dependency Installation**: Execute `!pip install -r requirements.txt` to install all necessary libraries and model dependencies.
+4. **Execution**: Run the provided code block in Colab to launch the Flask App. Access the application via the securely generated URL provided by the **Colab Proxy** (using `google.colab.kernel.proxyPort`).
