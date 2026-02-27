@@ -27,4 +27,13 @@ An advanced analytical tool designed to synthesize sophisticated marketing copy 
 1. **Environment Setup**: Ensure the Runtime type is set to **T4 GPU**.
 2. **Project Clone**: Execute `!git clone https://github.com/Nehal675/AI-Marketing-Ad-Generator_Group24.git` and `%cd AI-Marketing-Ad-Generator_Group24` to load all project assets automatically.
 3. **Dependency Installation**: Execute `!pip install -r requirements.txt` to install all necessary libraries and model dependencies.
-4. **Execution**: Run the provided code block in Colab to launch the Flask App. Access the application via the securely generated URL provided by the **Colab Proxy** (using `google.colab.kernel.proxyPort`).
+4. **Execution**: Run the following code block in Colab to launch the Flask App. Access the application via the securely generated URL provided by the **Colab Proxy** (using `google.colab.kernel.proxyPort`).
+from google.colab.output import eval_js
+print(f"Click the link to open the App: {eval_js('google.colab.kernel.proxyPort(5000)')}")
+
+with open('app.py', 'r') as f:
+    code = f.read()
+
+# Ensuring compatibility with Colab by disabling debug reloader
+code = code.replace("debug=True", "debug=False, use_reloader=False")
+exec(code)
