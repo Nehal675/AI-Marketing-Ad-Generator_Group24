@@ -30,8 +30,13 @@ An advanced analytical tool designed to synthesize sophisticated marketing copy 
 4. **Execution**: Run the following code block in Colab to launch the Flask App. Access the application via the securely generated URL provided by the **Colab Proxy** (using `google.colab.kernel.proxyPort`).
 
 from google.colab.output import eval_js
+
 print(f"Click the link to open the App: {eval_js('google.colab.kernel.proxyPort(5000)')}")
+
 with open('app.py', 'r') as f:
+
     code = f.read()
+    
 code = code.replace("debug=True", "debug=False, use_reloader=False")
+
 exec(code)
