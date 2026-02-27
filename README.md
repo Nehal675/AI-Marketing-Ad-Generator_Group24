@@ -31,6 +31,8 @@ An advanced analytical tool designed to synthesize sophisticated marketing copy 
 
 from google.colab.output import eval_js
 
+import os
+
 print(f"Click the link to open the App: {eval_js('google.colab.kernel.proxyPort(5000)')}")
 
 with open('app.py', 'r') as f:
